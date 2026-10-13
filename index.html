@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100b22">
+  <title>The Haunted Hollow — Spooky Town</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.174.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.174.0/examples/jsm/"}}
+  </script>
+</head>
+<body>
+  <div id="game"></div><div class="vignette"></div>
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">✦</span><div><strong>THE HAUNTED HOLLOW</strong><small>Spooky Town · Halloween hunt</small></div></div>
+    <div class="top-actions"><span id="modeLabel">Explore the town</span><button id="soundBtn" class="icon-button">♫ <span id="soundLabel">Sound off</span></button></div>
+  </header>
+
+  <section id="hud" class="hud hidden" aria-live="polite">
+    <div class="progress-card">
+      <div class="progress-top"><span>CURSED CURIOSITIES</span><strong id="score">0 / 6</strong></div>
+      <div class="progress-track"><div id="progressFill"></div></div>
+      <div id="statusText">Find the odd little objects around town.</div>
+    </div>
+    <div class="objective-card"><b>Controls</b><span>WASD / arrows: walk</span><span>Mouse drag: look</span><span>E: open / close door</span></div>
+  </section>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+  <section id="ghostModal" class="ghost-modal hidden" aria-live="assertive">
+    <div class="ghost-face">👻</div><div class="ghost-copy"><strong>AN UNWELCOME SURPRISE</strong><p id="ghostLine">Boo! Nice try!</p></div>
+  </section>
+  <div id="doorPrompt" class="door-prompt hidden">Press <b>E</b> to open door</div>
+
+  <section id="intro" class="overlay">
+    <div class="intro-card">
+      <div class="eyebrow">WELCOME TO THE WRONG SIDE OF TOWN</div>
+      <h1>Trick or <em>treat?</em></h1>
+      <p>Explore a foggy little town, peek inside haunted houses, and collect six suspicious objects. Some are decoys. Touch one and its ghostly owner may have something to say.</p>
+      <div class="howto"><span><b>WASD / arrows</b> walk</span><span><b>Drag</b> to look around</span><span><b>E</b> open nearby doors</span><span><b>Click / tap</b> items to inspect</span></div>
+      <button id="startBtn" class="primary-button">Enter the town <span>→</span></button>
+      <p class="small-note">Best on desktop. On mobile, drag to look and use the on-screen walk pad.</p>
+    </div>
+  </section>
+
+  <div id="mobilePad" class="mobile-pad hidden" aria-label="Movement controls">
+    <button data-move="forward">▲</button><div><button data-move="left">◀</button><button data-move="back">▼</button><button data-move="right">▶</button></div>
+  </div>
+  <footer class="bottom-hint"><span id="controlHint">Explore the streets · open doors · beware the decoys</span><span class="made-for">THE MOON IS WATCHING</span></footer>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
